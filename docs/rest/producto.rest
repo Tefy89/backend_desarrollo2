@@ -1,0 +1,16 @@
+###Listar productos
+GET http://localhost:3000/producto
+
+###Crear producto
+POST http://localhost:3000/producto
+Content-Type: application/json
+
+{
+   "nombre":"Teclado Gammer",
+   "precio": "160",
+   "stock": 13,
+   "categoriaId":1 
+}
+
+### Busqueda por nombre
+GET http://localhost:3000/producto/back?page=1&q=mm&sort=asc

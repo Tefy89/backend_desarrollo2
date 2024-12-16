@@ -1,11 +1,11 @@
-import { Injectable } from "@nestjs/common";
+import { HttpException, Injectable } from "@nestjs/common";
 import { LoginAuthDto } from "./dto/login-auth.dto";
 import { JwtService } from "@nestjs/jwt";
 import { InjectRepository } from "@nestjs/typeorm";
 import { User } from "../users/entities/user.entity";
 import { Repository } from "typeorm";
 import { RegisterAuthDto } from "./dto/register-auth.dto";
-import { hash } from "bcrypt";
+import { hash, compare } from "bcrypt";
 
 @Injectable()
 export class AuthService {
@@ -22,9 +22,25 @@ export class AuthService {
         return this.userRepository.save(objUser)
     }
 
-    login(credenciales: LoginAuthDto) {
-        let payload = { email: "admin@gmail.com", id: 1 }
+    async login(credenciales: LoginAuthDto) {
+
+        const { email, password } = credenciales //en este caso necesitamos los dos campos
+        const user = await this.userRepository.findOne({
+            where: {
+                email: email
+            }
+        })
+        //si no existe el usuario lanzamos una excepcion
+        if (!user) return new HttpException('Usuario no encontrado', 404);
+
+        const verificarPass = await compare(password, user.password) //compare lo importamos manualmente
+
+        if (!verificarPass) throw new HttpException('Password inválido', 401)
+
+        let payload = { email: user.email, id: user.id }
         const token = this.jwtService.sign(payload)
-        return { token: token };
+        return { user: user, token: token };
+
     }
+
 }

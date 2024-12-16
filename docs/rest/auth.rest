@@ -3,7 +3,7 @@ POST http://127.0.0.1:3000/auth/register
 Content-Type: application/json
 
 {
-    "name":"prueba3",
+    "name":"prueba2",
     "email": "raul.paez@outlook.com",
     "password": "Pass_123"
 }
@@ -13,7 +13,7 @@ POST http://127.0.0.1:3000/auth/login
 Content-Type: application/json
 
 {
-    "name":"pruebaRP",
+    "name":"prueba2",
     "email": "raul.paez@outlook.com",
     "password": "Pass_123"
 }
