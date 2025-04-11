@@ -6,14 +6,16 @@ import { Categoria } from './entities/categoria.entity';
 
 @Injectable()
 export class CategoriaService {
-
-  constructor(@Inject('CATEGORIA_REPOSITORY') private categoriaRepository: Repository<Categoria>) { }
+  constructor(
+    @Inject('CATEGORIA_REPOSITORY')
+    private categoriaRepository: Repository<Categoria>,
+  ) {}
 
   async create(createCategoriaDto: CreateCategoriaDto) {
-    const categoria = new Categoria()
-    categoria.nombre = createCategoriaDto.nombre
-    categoria.detalle = createCategoriaDto.detalle
-    return await this.categoriaRepository.save(categoria)
+    const categoria = new Categoria();
+    categoria.nombre = createCategoriaDto.nombre;
+    categoria.detalle = createCategoriaDto.detalle;
+    return await this.categoriaRepository.save(categoria);
   }
 
   async findAll() {
@@ -23,8 +25,8 @@ export class CategoriaService {
   async findOne(id: number) {
     return await this.categoriaRepository.findOne({
       where: {
-        id: id
-      }
+        id: id,
+      },
     });
   }
 

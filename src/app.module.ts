@@ -13,7 +13,18 @@ import { ClienteModule } from './modules/cliente/cliente.module';
 import { PedidoModule } from './modules/pedido/pedido.module';
 
 @Module({
-  imports: [AuthModule, UsersModule, DatabaseModule, ConfigModule, CategoriaModule, PersonaModule, ProductoModule, RolModule, ClienteModule, PedidoModule],
+  imports: [
+    AuthModule,
+    UsersModule,
+    DatabaseModule,
+    ConfigModule,
+    CategoriaModule,
+    PersonaModule,
+    ProductoModule,
+    RolModule,
+    ClienteModule,
+    PedidoModule,
+  ],
   controllers: [AppController],
   providers: [AppService],
 })

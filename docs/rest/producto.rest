@@ -6,11 +6,11 @@ POST http://localhost:3000/producto
 Content-Type: application/json
 
 {
-   "nombre":"Teclado Gammer",
+   "nombre":"IMonitor",
    "precio": "160",
    "stock": 13,
    "categoriaId":1 
 }
 
 ### Busqueda por nombre
-GET http://localhost:3000/producto/back?page=1&q=mm&sort=asc
+GET http://localhost:3000/producto/back?q=IM

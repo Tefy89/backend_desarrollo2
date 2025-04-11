@@ -1,4 +1,12 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
+import {
+  Controller,
+  Get,
+  Post,
+  Body,
+  Patch,
+  Param,
+  Delete,
+} from '@nestjs/common';
 import { PersonaService } from './persona.service';
 import { CreatePersonaDto } from './dto/create-persona.dto';
 import { UpdatePersonaDto } from './dto/update-persona.dto';
@@ -7,7 +15,7 @@ import { ApiTags } from '@nestjs/swagger';
 @ApiTags('persona')
 @Controller('persona')
 export class PersonaController {
-  constructor(private readonly personaService: PersonaService) { }
+  constructor(private readonly personaService: PersonaService) {}
 
   @Post()
   create(@Body() createPersonaDto: CreatePersonaDto) {

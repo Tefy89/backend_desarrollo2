@@ -5,7 +5,7 @@ import { categoriaProviders } from './categoria.provider';
 import { DatabaseModule } from 'src/database/database.module';
 
 @Module({
-  imports:[DatabaseModule],
+  imports: [DatabaseModule],
   controllers: [CategoriaController],
   providers: [CategoriaService, ...categoriaProviders],
 })

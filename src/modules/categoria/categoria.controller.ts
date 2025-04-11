@@ -1,4 +1,13 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete, UseGuards } from '@nestjs/common';
+import {
+  Controller,
+  Get,
+  Post,
+  Body,
+  Patch,
+  Param,
+  Delete,
+  UseGuards,
+} from '@nestjs/common';
 import { CategoriaService } from './categoria.service';
 import { CreateCategoriaDto } from './dto/create-categoria.dto';
 import { UpdateCategoriaDto } from './dto/update-categoria.dto';
@@ -8,7 +17,7 @@ import { JwtAuthGuard } from '../auth/jwt-auth.guard';
 @ApiTags('categoria')
 @Controller('categoria')
 export class CategoriaController {
-  constructor(private readonly categoriaService: CategoriaService) { }
+  constructor(private readonly categoriaService: CategoriaService) {}
 
   @Post()
   create(@Body() createCategoriaDto: CreateCategoriaDto) {
@@ -16,7 +25,6 @@ export class CategoriaController {
   }
 
   @Get()
-
   findAll() {
     return this.categoriaService.findAll();
   }
@@ -27,7 +35,10 @@ export class CategoriaController {
   }
 
   @Patch(':id')
-  update(@Param('id') id: string, @Body() updateCategoriaDto: UpdateCategoriaDto) {
+  update(
+    @Param('id') id: string,
+    @Body() updateCategoriaDto: UpdateCategoriaDto,
+  ) {
     return this.categoriaService.update(+id, updateCategoriaDto);
   }
 
