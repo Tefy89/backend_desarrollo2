@@ -1,16 +1,18 @@
 ###Listar productos
 GET http://localhost:3000/producto
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InJhdWwucGFlekBvdXRsb29rLmNvbSIsImlkIjoxLCJpYXQiOjE3NDQ1MTY5MjMsImV4cCI6MTc0NDUxNzgwM30.s_PKDu7okuK5hCuQ96ynCKeeHtqEPhiCzAVnj_aV-Vs
 
-###Crear producto
 POST http://localhost:3000/producto
 Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InJhdWwucGFlekBvdXRsb29rLmNvbSIsImlkIjoxLCJpYXQiOjE3NDQ1MTY5MjMsImV4cCI6MTc0NDUxNzgwM30.s_PKDu7okuK5hCuQ96ynCKeeHtqEPhiCzAVnj_aV-Vs
 
 {
-   "nombre":"IMonitor",
-   "precio": "160",
+   "nombre":"Paralntes",
+   "precio": "1650",
    "stock": 13,
    "categoriaId":1 
 }
 
 ### Busqueda por nombre
 GET http://localhost:3000/producto/back?q=IM
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InJhdWwucGFlekBvdXRsb29rLmNvbSIsImlkIjoxLCJpYXQiOjE3NDQ1MTY5MjMsImV4cCI6MTc0NDUxNzgwM30.s_PKDu7okuK5hCuQ96ynCKeeHtqEPhiCzAVnj_aV-Vs

@@ -60,7 +60,7 @@ export class ProductoController {
     const page: number = parseInt(req.query.page as any) || 1; //si no existe nada captura la pagina 1
 
     //const limit=10; //limite de productos por pagina
-    const limit = parseInt(req.query.limit as any) || 10; //para controlar el limite
+    const limit = parseInt(req.query.page as any) || 10; //para controlar el limite
 
     builder.offset((page - 1) * limit).limit(limit); //a partir de que dato vamos a mostrar la informacion
     //si page es 1 entonces a partir de 0 me muestra 10
